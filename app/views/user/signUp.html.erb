@@ -1,0 +1,35 @@
+
+<%=form_for @user,:url => { :controller => :user, :action => :create } do |f| %>
+<p>
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name%>
+</p>
+
+<p>
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %>
+</p>
+<p>
+  <%= f.label :username %><br>
+  <%= f.text_field :username%>
+</p>
+<p>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+</p>
+<p>
+  <%= f.label :password %><br>
+  <%= f.password_field :password, required: true %>
+</p>
+<p>
+  <%= f.label :password_confirmation %><br>
+  <%= f.password_field :password_confirmation, required: true %>
+</p>
+
+<p>
+  <%= f.submit :Register, {:class=>"button expand", :id=>"ids", data: { disable_with: "Please wait..."}} %>
+</p>
+
+<% end %>
+
+
