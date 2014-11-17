@@ -40,42 +40,41 @@
     </head>
     <body>
 
-    
-       <header>
-         <div class="navblock navbar-default navbar-fixed-top shadow">
-           <div class="container ">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <%= link_to "PIXhub", :root , :class =>"navbar-brand" , :style => "font-size:40px; color:#E4F1FE ; font-family: 'Lobster', cursive;"%>
-            <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav pull-right navlinkstyle" style= "color:#E4F1FE;">
 
-                <li><%= link_to "Sign In", :login ,:style => "color:#E4F1FE;" %></li>
-                <li><%= link_to "Sign Up", :register ,:style => "color:#E4F1FE;"  %></li>
-                <li><%= link_to "About", "",:style => "color:#E4F1FE;" %></li>
-              </ul>
-            </div>
-          </div>
+
+     <div class="navblock navbar-default navbar-fixed-top shadow">
+       <div class="container ">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "PIXhub", :root , :class =>"navbar-brand" , :style => "font-size:40px; color:#E4F1FE ; font-family: 'Oswald', sans-serif;"%>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav pull-right navlinkstyle" style= "color:#E4F1FE;">
+
+            <li><%= link_to "Sign In", :login ,:style => "color:#E4F1FE;" %></li>
+            <li><%= link_to "Sign Up", :register ,:style => "color:#E4F1FE;"  %></li>
+            <li><%= link_to "About", "",:style => "color:#E4F1FE;" %></li>
+          </ul>
         </div>
-      </header>
-     
 
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9">
+              <%= bootstrap_flash %>
+              <%= yield %>
+            </div>
 
-    <section class="mainblock container contentblock">
-      
-      <div class="col-xs-8">
-        dfjlsijfl
-
+          </div> <!-- /container -->
+        </div><!--/row-->
       </div>
+    </div>
+    
 
-      <div class="col-xs-4">
-        hfisjldfj
 
-      </div>
-    </section>
+
+
 
   </body>
   </html>
