@@ -42,13 +42,14 @@
 
 
 
-     <div class="navblock navbar-default navbar-fixed-top shadow">
+     <div class="navblock navbar-default shadow">
        <div class="container ">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+          
         <%= link_to "PIXhub", :root , :class =>"navbar-brand" , :style => "font-size:40px; color:#E4F1FE ; font-family: 'Oswald', sans-serif;"%>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav pull-right navlinkstyle" style= "color:#E4F1FE;">
@@ -61,11 +62,20 @@
 
         <div class="container">
           <div class="row">
-            <div class="col-lg-9">
-              <%= bootstrap_flash %>
+            <div class="col-lg-10">
+              
               <%= yield %>
             </div>
-
+          <br><br>
+           <br><br>
+           <br><br>
+           <br><br><br><br>
+           <br><br>
+           <br><br>
+           <br><br><br><br>
+           <br><br><br><br>
+           <br><br>
+          <%= bootstrap_flash %>
           </div> <!-- /container -->
         </div><!--/row-->
       </div>

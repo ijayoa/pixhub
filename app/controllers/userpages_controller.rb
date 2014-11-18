@@ -1,5 +1,5 @@
 class UserpagesController < ApplicationController
-	layout 'user'
+	layout 'application'
 	def index
 	end
 end
