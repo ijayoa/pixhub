@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   
 
+  resources :photos
+
   devise_for :passes
   root "homepage#index"
 

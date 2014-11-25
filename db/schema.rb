@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109205742) do
+ActiveRecord::Schema.define(version: 20141118153415) do
 
   create_table "passes", force: true do |t|
     t.integer  "user_id"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20141109205742) do
 
   add_index "passes", ["email"], name: "index_passes_on_email", unique: true
   add_index "passes", ["reset_password_token"], name: "index_passes_on_reset_password_token", unique: true
+
+  create_table "photos", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "first_name"

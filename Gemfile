@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 #gem for authentication and uploading pictures easily.
 gem 'devise'
-gem 'carrierwave'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -31,7 +31,16 @@ gem 'spring',        group: :development
 gem 'therubyracer',            group: :development
 gem 'less-rails',      group: :development
 gem 'twitter-bootstrap-rails',   group: :development
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
 gem 'pry'
+gem 'carrierwave'
+gem 'rmagick'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
