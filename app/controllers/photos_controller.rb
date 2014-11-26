@@ -4,7 +4,8 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   def index
-    @photos = Photo.all
+    user =session[:user_id]
+    @photos = Photo.where(user_id:user)
     respond_with(@photos)
   end
 

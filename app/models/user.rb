@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	before_save 	:set_pass
 
 	has_one :pass
+	has_many :photos, dependent: :destroy
 
 	validates :first_name, 
 	:presence=>{:message=>"Please enter your first name"}

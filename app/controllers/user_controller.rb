@@ -4,6 +4,7 @@ class UserController < ApplicationController
 
 	def logout
 		sign_out :pass
+		session[:user_id] = nil
 		redirect_to :root
 	end
 
@@ -14,7 +15,8 @@ class UserController < ApplicationController
 		if @user
 			if @user.valid_password?(params[:password])
 				sign_in :pass, @user.pass
-				redirect_to :userpages_path and return
+				session[:user_id] = @user.id
+				redirect_to :photos_path and return
 			else
 				flash[:notice] = "Invalid password"	
 			end	
@@ -45,7 +47,7 @@ class UserController < ApplicationController
 		if @user.save
 			flash[:notice] = "Get Started on pixhub Upload a picture now..."
 			sign_in :pass, @user.pass
-			redirect_to :userpages_path and return
+			redirect_to :photos_path and return
 		else
 			flash[:alert] = "Error occured #{@user.errors.messages}"
 		end

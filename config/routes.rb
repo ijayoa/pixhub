@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/user/user_sign_in' => 'user#user_sign_in', :as=> 'sign_in'
   get  'login'               => 'user#signIn',       :as=> 'login'
   get 'userpages/index'      => 'userpages#index',      :as=> 'userpages_path'
+  get 'photos/'      => 'photos#index',      :as=> 'photos_path'
   get 'user/logout'     => 'user#logout', :as => 'logout'
    
 
