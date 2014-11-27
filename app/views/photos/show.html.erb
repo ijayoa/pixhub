@@ -11,7 +11,7 @@
   <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
   <dd><%= @photo.image %></dd>
 </dl>
-<%= image_tag @photo.image_url(:thumb).to_s %>
+<%= image_tag @photo.image_url.to_s, :height => "300", :width => "300"%>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               photos_path, :class => 'btn btn-default'  %>
