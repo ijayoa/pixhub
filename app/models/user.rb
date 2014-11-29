@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
 			return false				
 		end
 	end
-
+    
 	def fullname
 		"#{first_name} #{last_name}"
 	end

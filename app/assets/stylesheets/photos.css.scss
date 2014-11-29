@@ -2,10 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.photoflow{
-	margin-top:150px;
-}
-body {
+body{
 margin: 0;
 padding: 0;
 line-height: 30px;
@@ -14,7 +11,12 @@ color: #444;
 width: 100%;
 margin: 0px;
 padding: 20px;
-background-color: #FBFBFB!important;
+background-color: #FBFBFB;
+}
+.navlinkstyleuser{
+font-size:16px;
+color:#E4F1FE !important;
+font-family: 'Oswald', sans-serif;
 }
 .navuser{
 border:0px;
@@ -33,10 +35,30 @@ margin-bottom:20px;
     margin-bottom:20px;
 }
 
-img:hover {
+.img:hover {
   filter: none; /* IE6-9 */
   -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
  
 }
+.userimage{
+	padding-top: 13px;
 
-
+}
+.imgpanel{
+	border:2px #000;
+}
+.contentstyle{
+	margin-left:0;
+	padding-left:0;
+}
+.labelstyle{
+	margin-right:0;
+	padding-right:0;
+}
+.imagedetails{
+	padding: 0px 5px;
+	background:white;
+	vertical-align: middle;
+	width: 353px;
+	height: 353px;
+}

@@ -11,7 +11,7 @@
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
       <![endif]-->
-
+      <%= stylesheet_link_tag params[:homepage] %>
       <%= stylesheet_link_tag "application", :media => "all" %>
 
       <!-- For third-generation iPad with high-resolution Retina display: -->
@@ -38,7 +38,7 @@
 
       
     </head>
-    <body>
+    <body id="homepage">
 
 
 
@@ -50,7 +50,7 @@
           <span class="icon-bar"></span>
         </button>
           
-        <%= link_to "PIXhub", :root , :class =>"navbar-brand" , :style => "font-size:40px; color:#E4F1FE ; font-family: 'Oswald', sans-serif;"%>
+        <%= link_to "PixHub", :root , :class =>"navbar-brand" , :style => "font-size:40px; color:#E4F1FE ; font-family: 'Oswald', sans-serif;"%>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav pull-right navlinkstyle" style= "color:#E4F1FE;">
 
@@ -59,28 +59,17 @@
             <li><%= link_to "About", "",:style => "color:#E4F1FE;" %></li>
           </ul>
         </div>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-10">
-              
+      </div>
+      </div>
+        
+          <div class="container">
+                
               <%= yield %>
-            </div>
-          <br><br>
-           <br><br>
-           <br><br>
-           <br><br><br><br>
-           <br><br>
-           <br><br>
-           <br><br><br><br>
-           <br><br><br><br>
-           <br><br>
+       
           <%= bootstrap_flash %>
           </div> <!-- /container -->
-        </div><!--/row-->
-      </div>
-    </div>
-    
+        
+
 
 
 

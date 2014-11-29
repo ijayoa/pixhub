@@ -1,8 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:700|Lobster&subset=latin,latin-ext);
 @import url(http://fonts.googleapis.com/css?family=Oswald:300&subset=latin,latin-ext);
 
-
-
 .navblock{
 border:0px;
 background-color:#2C3E50 !important;
@@ -25,9 +23,9 @@ box-shadow: 0 8px 6px -6px #22313F;
 .h1main{
 
 font-family: 'Oswald', sans-serif;
-padding-top:100px;
+padding-top:162px;
 color:#22313F;
-font-size: 56px;
+font-size: 54px;
 padding-left:0px;
 font-weight:700;
 margin-bottom:20px;
@@ -44,21 +42,23 @@ font-weight:700;
 }
 
 .liststyle{
-margin-top:30px;
-font-size:20px;
-font-family: 'Lobster', cursive;
-font-weight:0;
+margin-top:30px !important;
+font-size:20px !important;
+font-family: sans-serif;
+font-weight:0 !important;
 }
 
 #Focus{
 font-size:36px;
+font-family: 'Oswald', sans-serif
 }
 .ctabtn{
 
 margin-top:20px;
-background-color:#FF0000;
+background-color:#22A7F0;
 font-weight:200;
 }
+
 .formstyle{
 margin-top:45px;
 display:block;
@@ -76,7 +76,10 @@ label{
 font-size: 14px;
 text-align:right;
 }
-
+/*.navbar-default .navbar-nav > .open > a:focus {
+background-color: #2C3E50 !important;
+color: #555555;
+}*/
 .form-inputs{
 width: 100%;
 }

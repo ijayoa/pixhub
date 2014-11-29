@@ -1,85 +1,108 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
  <title>Pixhub | Home Page </title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
-   <%= stylesheet_link_tag "application", :media => "all" %>
-   
-  <%= javascript_include_tag "application", :media => "all"%>
-    <script>
-    $(function() {
-      var pull    = $('#pull');
-        menu    = $('nav ul');
-        menuHeight  = menu.height();
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+ <%= stylesheet_link_tag "application", :media => "all" %>
 
-      $(pull).on('click', function(e) {
-        e.preventDefault();
-        menu.slideToggle();
-      });
+ <%= javascript_include_tag "application", :media => "all"%>
+ 
+ <script>
+  $(function() {
+    var pull    = $('#pull');
+    menu    = $('nav ul');
+    menuHeight  = menu.height();
 
-      $(window).resize(function(){
-            var w = $(window).width();
-            if(w > 320 && menu.is(':hidden')) {
-              menu.removeAttr('style');
-            }
-        });
+    $(pull).on('click', function(e) {
+      e.preventDefault();
+      menu.slideToggle();
     });
-  </script>
+
+    $(window).resize(function(){
+      var w = $(window).width();
+      if(w > 320 && menu.is(':hidden')) {
+        menu.removeAttr('style');
+      }
+    });
+  });
+</script>
 </head>
 <body>
-  <div id="container">
-    <!---start-wrap---->
-    <div class="wrap">
-      <!---start-sidebar---->
-      <div id="w3-universal-nav ">
-      <ul id="header">
-        <div class="logo">
-        <a href="index.html"><%= image_tag("logo.png", :alt => "logo",:height => "40", :width => "40") %></a> Welcome
-        </div>
-        <div class="top-socialicons">
-          <ul>
-            <li><a class="icon1" href="#"></a></li>
-            <li><a class="icon2" href="#"></a></li>
-            <li><a class="icon3" href="#"></a></li>
-            <li><a class="icon4" href="#"></a></li>
-          </ul>
-        </div>
-        <div class="clear"> </div>
+
+ <div class="navuser navbar-default shadow navbar-fixed-top ">
+   <div class="container ">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <%= link_to " PixHub Search", :root , :class =>"navbar-brand" , :style => "font-size:24px; color:#E4F1FE ; font-family: 'Oswald', sans-serif;"%>
+
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+     <ul class="nav navbar-nav navbar-right pull-right ">
+      <li class="dropdown" style="left:45px;" >
+
+       <%
+       id=session[:user_id]
+       u = User.find(id)
+       %>
+       <a href="#" style="padding-left:2px;" class=" navlinkstyleuser dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><%= u.fullname%><span class="caret"></span></a>
+       <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Change Password</a></li>
+        <l class="divider"></li>
+        <li><%= link_to "Logout", :logout,:style => "font-family: 'Oswald', sans-serif; color: #000;"%></li>
       </ul>
-      <ul id="w3-menu-links" style="display: none;">
-      </ul>
-        </div>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav navlinkstyleuser pull-right" style= "color:#E4F1FE;">
+    <li><%= image_tag("home.png" , :title => "home", :class => "userimage") %></li>
+    <li><%= link_to "Home",photos_path,:style => "color:#E4F1FE; padding-left:2px;" %></li>
+    <li><%= image_tag("newpic.png" , :title => "Newpic", :class => "userimage") %></li>
+    <li><%= link_to "New Photo", new_photo_path,:style => "color:#E4F1FE; padding-left:2px;" %></li>
+    <li><%= image_tag("settings.png" , :title => "settings", :class => "userimage") %></li>
+    <li><%= link_to "Settings", "",:style => "color:#E4F1FE; padding-left:2px;" %></li>
+    <li style="left:45px;"><%= image_tag("user.png" , :title => "user", :class => "userimage") %></li>
+  </ul>
+
+
 </div>
-  <div class="clear"> </div>
-      <div class="left-sidebar">
-          </div>
-          <div id="main" role="main">
-      <ul id="tiles">
+</div>
+
+</div>
+
+<div id="container">
+  <!---start-wrap---->
+
+  <div id="main" role="main">
+    <ul id="tiles"> 
+    <ul class="lightGallery">
+      
       <%= yield %>
-        </ul>
+    </ul>
+    </ul>
 
 
     <footer>
 
     </footer>
   </div>
-    
+
   <!-- include jQuery -->
 <!--   <script src="js/jquery.min.js"></script>
- -->
-  <!-- Include the imagesLoaded plug-in -->
+-->
+<!-- Include the imagesLoaded plug-in -->
 <!--   <script src="js/jquery.imagesloaded.js"></script>
- -->
-  <!-- Include the plug-in -->
+-->
+<!-- Include the plug-in -->
 <!--   <script src="js/jquery.wookmark.js"></script>
- -->
-  <!-- Once the page is loaded, initalize the plug-in. -->
-  <script type="text/javascript">
-    (function ($){
-      $('#tiles').imagesLoaded(function() {
-        var handler = null;
+-->
+<!-- Once the page is loaded, initalize the plug-in. -->
+<script type="text/javascript">
+  (function ($){
+    $('#tiles').imagesLoaded(function() {
+      var handler = null;
 
         // Prepare layout options.
         var options = {
@@ -92,7 +115,7 @@
         /**
          * When scrolled all the way to the bottom, add more tiles.
          */
-        function onScroll(event) {
+         function onScroll(event) {
           // Check if we're within 100 pixels of the bottom edge of the broser window.
           var winHeight = window.innerHeight ? window.innerHeight : $(window).height(); // iphone fix
           var closeToBottom = ($(window).scrollTop() + winHeight > $(document).height() - 100);
@@ -100,7 +123,7 @@
           if (closeToBottom) {
             // Get the first then items from the grid, clone them, and add them to the bottom of the grid.
             var items = $('#tiles li'),
-                firstTen = items.slice(0, 10);
+            firstTen = items.slice(0, 10);
             $('#tiles').append(firstTen.clone());
 
             // Destroy the old handler
@@ -121,8 +144,15 @@
         handler = $('#tiles li');
         handler.wookmark(options);
       });
-    })(jQuery);
-  </script>
+})(jQuery);
+</script>
+
+
+
+
+
+
 </div>
 </body>
+
 </html>

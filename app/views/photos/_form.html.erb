@@ -1,4 +1,11 @@
-<%= form_for @photo, :html => { :class => "form-horizontal photo", :multipart => true } do |f| %>
+<div class="container">
+
+ <div class="row">
+
+  <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+    <%= form_for @photo,:html => { :class => "form-horizontal formstyle",:multipart => true, :role => "form" } do |f| %>
+
 
     <% if @photo.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -7,39 +14,59 @@
       </div>
       <div class="panel-body">
         <ul>
-        <% @photo.errors.full_messages.each do |msg| %>
+          <% @photo.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
-        <% end %>
+          <% end %>
         </ul>
       </div>
     </div>
-  <% end %>
+    <% end %>
+    
+    <hr class="colorgraph">
 
-  <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'form-control' %>
+
+    <div class="form-group">
+      <%= f.text_field :title, :id => "title", :class => "form-control input-lg", :placeholder => "Title...in one word", :tabindex => "1"%>
     </div>
-    <%= error_span(@photo[:title]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'form-control' %>
+
+    <div class="form-group">
+      <%= f.text_area :description, :id => "description", :class => "form-control input-lg", :placeholder => "Photo Description", :tabindex => "2"%>
     </div>
-    <%= error_span(@photo[:description]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :image, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.file_field :image, :class => 'form-control' %>
+
+    <div class="form-group">
+      <%= f.file_field :image, :id => "image", :class => "form-control input-lg", :tabindex => "3"%>
     </div>
-    <%= error_span(@photo[:image]) %>
-  </div>
+    <% user= session[:user_id] %>
+
+    <%= hidden_field_tag(:user_id, user) %>
+
+    <hr class="colorgraph">
+
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <%= f.submit :nil, {:class=>"btn btn-primary btn-block btn-lg",:tabindex => "4",:value => "Submit",data: { disable_with: "Please wait..."}, } %>
+      </div>
+      <div class="col-xs-12 col-md-6 offset-3">
+     
+       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+       photos_path, :class => 'btn btn-default btn-block btn-lg' %>
+     </div>
+
+   </div>
 
 
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            photos_path, :class => 'btn btn-default' %>
+   <% end %>
+ </div>
+</div>
+</div>
 
-<% end %>
+
+
+
+
+
+
+
+
+
+
