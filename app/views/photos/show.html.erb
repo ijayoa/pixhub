@@ -6,8 +6,8 @@
   <div class="row">
     <div class="col-md-6">
 
-     <div class="imagedetails shadow">
-     <%= image_tag @photo.image_url.to_s, :width => "353" ,  %>
+     <div class=" container-fluid imagedetails shadow">
+     <%= image_tag @photo.image_url.to_s, :width => "353" , :class => "img img-responsive" %>
      </div>
 
    </div>
@@ -17,7 +17,7 @@
         text-align: initial; padding-top:5%; background-color:#2C3E50;">Photo Details
         </div>
 
-        <div class="panel-body">
+        <div class="panel-body" style="background-color: #EEEEEE;">
 
               <div class="row">
                  <div class="col-md-4 labelstyle">
@@ -27,6 +27,7 @@
                   <%= @photo.title %>
                  </div>  
               </div>
+              <br>
               <div class="row">
                   <div class="col-md-4 labelstyle">
                     Photo Description:
@@ -35,6 +36,7 @@
                     <%= @photo.description %>
                   </div> 
               </div>
+              <br>
               <div class="row">
                   <div class="col-md-4  labelstyle">
                     Created At:
@@ -43,6 +45,7 @@
                    <%= @photo.created_at%>
                   </div> 
              </div>
+             <br>
              <div class="row">
                   <div class="col-md-4  labelstyle">
                     Last Updated: 
@@ -51,9 +54,10 @@
                    <%= @photo.updated_at%>
                  </div> 
              </div>
+             <br>
 
           </div>
-          <div class="panel-footer" style="background-color:#2C3E50;">
+          <div class="panel-footer shadow" style="background-color:#2C3E50;">
 
             <%= link_to t('.back', :default => t("helpers.links.back")),
             photos_path, :class => 'btn btn-default'  %>

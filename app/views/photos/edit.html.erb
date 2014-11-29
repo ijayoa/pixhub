@@ -1,5 +1,5 @@
 <%- model_class = Photo -%>
-
-  <h1 id="Focus"><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+<div class="row" style="padding:7px; margin-top:0px;">
+  <h1 id="Focus"><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1> </div>
 
 <%= render :partial => 'form' %>

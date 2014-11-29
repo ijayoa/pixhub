@@ -3,8 +3,8 @@
        
 
         <li data-src="<%= photo.image_url.to_s %>"  >
-        <a href=""><%= image_tag photo.image_url.to_s %></a>
-        <p><%= photo.title %> <span><%= link_to image_tag("view-icon.png" , :title => "view" ),photo_path(photo),:class=>"dntshow" %><a href="" class="dntshow"><%= image_tag("like.png" , :title => "like") %></a><%= link_to image_tag("comment.png" , :title => "comment"),photo_path(photo),:class=>"dntshow" %><a href="" class="dntshow"><%= image_tag("priview.png" , :title => "preview") %></a></span></p></li>
+        <a href=""><%= image_tag photo.image_url.to_s%></a>
+        <p><span class="pull-left" style="margin-top:2px;"><%= photo.title%></span><span><a href="<%=photo_path(photo)%>" style="padding:4px;"><span class="glyphicon glyphicon-eye-open"></span></a><a href="<%=edit_photo_path(photo)%>" class="dntshow"><span class="glyphicon glyphicon-pencil"></span></a><a href="<%=photo_path(photo)%>" class="dntshow"><span class="glyphicon glyphicon-th-list"></span></a><a href="<%=photo_path(photo)%>" class="dntshow"><span class="glyphicon glyphicon-share"></span></a></span></p></li>
 
 
         <%end%>
