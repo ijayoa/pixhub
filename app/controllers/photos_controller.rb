@@ -6,10 +6,12 @@ class PhotosController < ApplicationController
   def index
     user =session[:user_id]
     @photos = Photo.where(user_id: user)
+    @photos = @photos.order("created_at DESC")
     respond_with(@photos)
   end
 
   def show
+    
     respond_with(@photo)
   end
 
